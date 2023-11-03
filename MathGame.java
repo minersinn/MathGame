@@ -1,10 +1,11 @@
 import java.util.Scanner; // Import the Scanner class
+import java.util.concurrent.TimeUnit;
+
 
 public class MathGame {
 
     public static void main(String[] args) {
         Scanner scannerBoi = new Scanner(System.in); // Create a Scanner object
-        Scanner answerScanner = new Scanner(System.in);
         String operator = ""; // Variable for user menu selection
         int number1 = 0;
         int number2 = 0;
@@ -12,6 +13,7 @@ public class MathGame {
         int userAnswer = 0;
         byte lives = 3;
         byte correctAnswers = 0;
+        String playAgain = "";
 
         System.out.println("Welcome to Math Games!");
         System.out.println("Select a game: ");
@@ -35,7 +37,7 @@ public class MathGame {
                     answer = number1 + number2;
                     System.out.println(number1 + " " + operator + " " + number2 + " = ");
                     System.out.println("Submit your answer");
-                    userAnswer = Integer.parseInt(answerScanner.nextLine());
+                    userAnswer = Integer.parseInt(scannerBoi.nextLine());
 
                     if (userAnswer == answer) {
                         System.out.println("Correct");
@@ -58,7 +60,7 @@ public class MathGame {
                     answer = number1 + number2;
                     System.out.println(answer + " " + operator + " " + number1 + " = ");
                     System.out.println("Submit your answer");
-                    userAnswer = Integer.parseInt(answerScanner.nextLine());
+                    userAnswer = Integer.parseInt(scannerBoi.nextLine());
 
                     if (userAnswer == number2) {
                         System.out.println("Correct");
@@ -81,7 +83,7 @@ public class MathGame {
                     answer = number1 * number2;
                     System.out.println(number1 + " " + operator + " " + number2 + " = ");
                     System.out.println("Submit your answer");
-                    userAnswer = Integer.parseInt(answerScanner.nextLine());
+                    userAnswer = Integer.parseInt(scannerBoi.nextLine());
 
                     if (userAnswer == answer) {
                         System.out.println("Correct");
@@ -105,7 +107,7 @@ public class MathGame {
                     answer = number1 * number2;
                     System.out.println(answer + " " + operator + " " + number1 + " = ");
                     System.out.println("Submit your answer");
-                    userAnswer = Integer.parseInt(answerScanner.nextLine());
+                    userAnswer = Integer.parseInt(scannerBoi.nextLine());
 
                     if (userAnswer == number2) {
                         System.out.println("Correct");
