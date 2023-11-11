@@ -16,8 +16,7 @@ public class MathGame {
     public static void main(String[] args) {
 
         System.out.println("What is your name?");
-        // userName = myScanner.nextLine();
-        userName = "CharMelia";
+        userName = myScanner.nextLine();
         System.out.println("Hello!, " + userName + "! It is nice to meet you.");
         System.out.println("Please choose a difficulty:");
         System.out.println("1 = Add and Subtract");
@@ -69,10 +68,11 @@ public class MathGame {
     static void addSubtract(){
         number1 = (int) (Math.random() * 13); // 0 to 12
         number2 = (int) (Math.random() * 13); // 0 to 12
-        int operator = (int) (Math.random() * 10);
-        
-        if (operator > 5) { // + operator
-            answer = number1 + number2;
+        answer = number1 + number2;
+        int operator; // Generate a random number to decide between addition or subtraction
+        operator = (int) (Math.random() * 11);
+
+        if (operator > 5) { // Addition Problem
             System.out.println(number1 + " + " + number2 + " = ");
             userAnswer = Integer.parseInt(myScanner.nextLine());
             System.out.println("The answer is " + answer);
@@ -83,10 +83,8 @@ public class MathGame {
                 System.out.println("You are incorrect.");
                 lives --;  
             } 
-        } else {  // - operator
-            
-            number2 = answer - number1;
-            System.err.println(answer + " - " + number1 + " = ");
+        } else {  // Subtraction Problem
+            System.out.println(answer + " - " + number1 + " = ");
             userAnswer = Integer.parseInt(myScanner.nextLine());
             System.out.println("The answer is " + number2);
             if (userAnswer == number2) {
@@ -100,16 +98,66 @@ public class MathGame {
 
     }
     static void multiplication(){
-        System.out.println("test multiplication");        
-        lives --;
+        number1 = (int) (Math.random() * 13); // 0 to 12
+        number2 = (int) (Math.random() * 13); // 0 to 12
+        answer = number1 * number2;
+        System.out.println(number1 + " * " + number2 + " = ");
+        userAnswer = Integer.parseInt(myScanner.nextLine());
+        System.out.println("The answer is " + answer);
+        if (userAnswer == answer) {
+            System.out.println("You are correct.");
+            correctAnswers ++;
+        } else {
+            System.out.println("You are incorrect.");
+            lives --;
+        }
     }
     static void multiplicationDivision(){
-        System.out.println("test multiplication/division");        
-        lives --;
+        number1 = (int) (Math.random() * 12 + 1); // 0 to 12
+        number2 = (int) (Math.random() * 12 + 1); // 0 to 12
+        int operator; // Generate a random number to decide between addition or subtraction
+        operator = (int) (Math.random() * 11);
+        answer = number1 * number2;
+
+        if (operator > 5) { // Multiplication Problem
+            System.out.println(number1 + " * " + number2 + " = ");
+            userAnswer = Integer.parseInt(myScanner.nextLine());
+            System.out.println("The answer is " + answer);
+            if (userAnswer == answer) {
+                System.out.println("You are correct.");
+                correctAnswers ++;
+            } else {
+                System.out.println("You are incorrect.");
+                lives --;
+            }
+        } else {  // Division Problem
+            System.out.println(answer + " / " + number1 + " = ");
+            userAnswer = Integer.parseInt(myScanner.nextLine());
+            System.out.println("The answer is " + number2);
+            if (userAnswer == number2) {
+                System.out.println("You are correct.");
+                correctAnswers ++;
+            } else {
+                System.out.println("You are incorrect.");
+                lives --;
+            }
+        }
     }
     static void longDivision(){
-        System.out.println("test long divison");
-        lives --;
+        number1 = (int) (Math.random() * 1000 + 1); // 0 to 12
+        number2 = (int) (Math.random() * 100 + 1); // 0 to 12
+        answer = number1 * number2;
+
+        System.out.println(answer + " / " + number1 + " = ");
+        userAnswer = Integer.parseInt(myScanner.nextLine());
+        System.out.println("The answer is " + number2);
+        if (userAnswer == number2) {
+            System.out.println("You are correct.");
+            correctAnswers ++;
+        } else {
+            System.out.println("You are incorrect.");
+            lives --;
+        }
     }
     
     static void restart(){
@@ -129,7 +177,7 @@ public class MathGame {
         } else {
             System.out.println("Invalid choice. Please choose \"Y\" or \"N\"");
             restart();
-        };
+        }
     }
 }
 
