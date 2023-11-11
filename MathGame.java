@@ -74,9 +74,11 @@ public class MathGame {
 
         if (operator > 5) { // Addition Problem
             System.out.println(number1 + " + " + number2 + " = ");
-            userAnswer = Integer.parseInt(myScanner.nextLine());
+            String userAnswerStr = myScanner.nextLine();
+            boolean isUserAnswerValid = isInt(userAnswerStr);
+            if (isUserAnswerValid) userAnswer = Integer.parseInt(userAnswerStr);
             System.out.println("The answer is " + answer);
-            if (userAnswer == answer) {
+            if (isUserAnswerValid && userAnswer == answer) {
                 System.out.println("You are correct.");
                 correctAnswers ++;
             } else {
@@ -85,9 +87,11 @@ public class MathGame {
             } 
         } else {  // Subtraction Problem
             System.out.println(answer + " - " + number1 + " = ");
-            userAnswer = Integer.parseInt(myScanner.nextLine());
+            String userAnswerStr = myScanner.nextLine();
+            boolean isUserAnswerValid = isInt(userAnswerStr);
+            if (isUserAnswerValid) userAnswer = Integer.parseInt(userAnswerStr);
             System.out.println("The answer is " + number2);
-            if (userAnswer == number2) {
+            if (isUserAnswerValid && userAnswer == number2) {
                 System.out.println("You are correct.");
                 correctAnswers ++;
             } else {
@@ -102,9 +106,11 @@ public class MathGame {
         number2 = (int) (Math.random() * 13); // 0 to 12
         answer = number1 * number2;
         System.out.println(number1 + " * " + number2 + " = ");
-        userAnswer = Integer.parseInt(myScanner.nextLine());
+        String userAnswerStr = myScanner.nextLine();
+        boolean isUserAnswerValid = isInt(userAnswerStr);
+        if (isUserAnswerValid) userAnswer = Integer.parseInt(userAnswerStr);
         System.out.println("The answer is " + answer);
-        if (userAnswer == answer) {
+        if (isUserAnswerValid && userAnswer == answer) {
             System.out.println("You are correct.");
             correctAnswers ++;
         } else {
@@ -121,9 +127,11 @@ public class MathGame {
 
         if (operator > 5) { // Multiplication Problem
             System.out.println(number1 + " * " + number2 + " = ");
-            userAnswer = Integer.parseInt(myScanner.nextLine());
+            String userAnswerStr = myScanner.nextLine();
+            boolean isUserAnswerValid = isInt(userAnswerStr);
+            if (isUserAnswerValid) userAnswer = Integer.parseInt(userAnswerStr);
             System.out.println("The answer is " + answer);
-            if (userAnswer == answer) {
+            if (isUserAnswerValid && userAnswer == answer) {
                 System.out.println("You are correct.");
                 correctAnswers ++;
             } else {
@@ -132,9 +140,11 @@ public class MathGame {
             }
         } else {  // Division Problem
             System.out.println(answer + " / " + number1 + " = ");
-            userAnswer = Integer.parseInt(myScanner.nextLine());
+            String userAnswerStr = myScanner.nextLine();
+            boolean isUserAnswerValid = isInt(userAnswerStr);
+            if (isUserAnswerValid) userAnswer = Integer.parseInt(userAnswerStr);
             System.out.println("The answer is " + number2);
-            if (userAnswer == number2) {
+            if (isUserAnswerValid && userAnswer == number2) {
                 System.out.println("You are correct.");
                 correctAnswers ++;
             } else {
@@ -149,9 +159,11 @@ public class MathGame {
         answer = number1 * number2;
 
         System.out.println(answer + " / " + number1 + " = ");
-        userAnswer = Integer.parseInt(myScanner.nextLine());
+        String userAnswerStr = myScanner.nextLine();
+        boolean isUserAnswerValid = isInt(userAnswerStr);
+        if (isUserAnswerValid) userAnswer = Integer.parseInt(userAnswerStr);
         System.out.println("The answer is " + number2);
-        if (userAnswer == number2) {
+        if (isUserAnswerValid && userAnswer == number2) {
             System.out.println("You are correct.");
             correctAnswers ++;
         } else {
@@ -177,6 +189,15 @@ public class MathGame {
         } else {
             System.out.println("Invalid choice. Please choose \"Y\" or \"N\"");
             restart();
+        }
+    }
+
+    static boolean isInt(String s) {
+        try {
+            Integer.parseInt(s);
+            return true;
+        } catch (Exception e) {
+            return false;
         }
     }
 }
